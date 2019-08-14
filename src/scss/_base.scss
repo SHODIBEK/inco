@@ -1,0 +1,203 @@
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+button {
+    outline: none;
+}
+
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+body {
+    font-family: $fonts-gotham;
+    font-size: $base-font-size;
+    overflow-x: hidden;
+    color: $color-black;
+}
+
+.container {
+    width: $desktop-size;
+    margin: 0 auto;
+    @include mobile {
+        padding: 0 15px;
+    }
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: bold;
+    color: $color-metalic;
+    padding: 0 34px;
+    height: 50px;
+    border: 1px solid #B6B6B6;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        border-color: $color-yellow;
+        background: $color-yellow;
+        transition: all 0.3s ease-in-out;
+    }
+    & * {
+        flex: 0 0 auto;
+    }
+    &-home {
+        padding: 0 15px;
+        svg {
+            width: 20px;
+            height: 22px;
+        }
+    }
+    &-submenu {
+        position: relative;
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 14px;
+            bottom: 0;
+            width: 10px;
+            height: 10px;
+            margin: auto;
+            background: url("../images/icons/btn-arr.svg") no-repeat center;
+        }
+    }
+    &-yellow {
+        background: $color-yellow;
+        border-color: $color-yellow;
+    }
+    &-download {
+        svg {
+            display: inline-block;
+            width: 23px;
+            height: 23px;
+            margin-right: 20px;
+            vertical-align: middle;
+        }
+    }
+    &-large {
+        padding: 0 60px;
+    }
+}
+
+.tittle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 0;
+    margin-bottom: 45px;
+    z-index: 2;
+    h2 {
+        margin: 0;
+        font-weight: 900;
+        font-size: 35px;
+        line-height: 40px;
+        color: $color-black;
+    }
+}
+
+.owl {
+    &-nav {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-top: 1px;
+    }
+    &-prev,
+    &-next {
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        padding: 0;
+        border-radius: 50%;
+        border: 1px solid $color-grey;
+        background: $color-white;
+        transition: all 0.3s ease-in-out;
+        svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            stroke: $color-black;
+            transition: all 0.3s ease-in-out;
+        }
+        &:hover {
+            background: $color-yellow;
+            border-color: $color-yellow;
+            svg {
+                stroke: $color-white;
+            }
+        }
+        &:active {
+            transform: scale(0.9);
+        }
+    }
+    &-prev {
+        left: -15px;
+    }
+    &-next {
+        right: -15px;
+    }
+    &-dots {
+        position: absolute;
+        left: 71px;
+        bottom: 40px;
+    }
+    &-dot {
+        width: 16px;
+        height: 16px;
+        border: 2px solid $color-black;
+        border-radius: 50%;
+        background: transparent;
+        &:not(:last-child) {
+            margin-right: 13px;
+        }
+        &.active {
+            background-color: $color-yellow;
+        }
+    }
+}
+
+.date {
+    position: relative;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 25px;
+    color: $color-black;
+    margin-left: 30px;
+    &::after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: -30px;
+        width: 22px;
+        height: 22px;
+        background: url('../images/icons/date.svg') no-repeat center;
+    }
+}

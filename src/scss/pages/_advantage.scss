@@ -1,0 +1,166 @@
+.advantage {
+    position: relative;
+    padding: 60px 0 200px;
+    background-color: $color-gray;
+    z-index: 1;
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 60%;
+        height: 425px;
+        background: $color-yellow;
+        z-index: 0;
+    }
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 25%;
+        height: 10px;
+        background: url('../images/icons/line.png') repeat-x center;
+    }
+    .tittle {
+        h2 {
+            display: inline-block;
+        }
+    }
+    .container {
+        position: relative;
+    }
+    &-items {
+        position: relative;
+        display: block;
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: $color-green;
+        }
+        &__wrap {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 1px;
+            background-color: #fff;
+            z-index: 2;
+        }
+    }
+    &-item {
+        position: relative;
+        padding: 49px 20px 40px;
+        z-index: 2;
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: $color-blue;
+            z-index: -1;
+        }
+        &__icon {
+            display: block;
+            text-align: center;
+        }
+        &__bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        &__name {
+            margin-top: 20px;
+            color: $color-white;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 20px;
+            text-align: center;
+        }
+    }
+    &-slider {
+        position: relative;
+        margin-top: 70px;
+        &__item {
+            overflow: hidden;
+            height: 415px;
+        }
+        &__img {
+            max-width: 100%;
+            height: auto;
+        }
+        &__thumbs {
+            position: absolute;
+            top: 311px;
+            right: 0;
+            width: 609px;
+            z-index: 3;
+        }
+        &__thumb {
+            position: absolute;
+            padding: 38px 34px;
+            top: 0;
+            left: 0;
+            width: 609px;
+            opacity: 0;
+            visibility: hidden;
+            background: rgba(227, 0, 15, 0.8);
+            transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: -1500px;
+                width: 1500px;
+                height: 100%;
+                background: rgba(227, 0, 15, 0.8);
+            }
+            &::before {
+                content: "";
+                position: absolute;
+                top: 50px;
+                right: -1470px;
+                width: 1500px;
+                height: 10px;
+                background: url('../images/icons/line-white.png') repeat-x;
+                z-index: 2;
+            }
+            &.active {
+                opacity: 1;
+                visibility: visible;
+                transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
+            }
+        }
+        &__title {
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: 35px;
+            line-height: 33px;
+            color: $color-white;
+            word-break: break-all;
+        }
+        &__subtitle {
+            font-weight: 300;
+            font-size: 20px;
+            line-height: 1.4;
+            color: $color-white;
+            word-break: break-all;
+        }
+    }
+}
+
+.line-block {
+    display: inline-block;
+    margin-left: 50px;
+    width: 337px;
+    height: 10px;
+    vertical-align: super;
+    background: url('../images/icons/line.png') repeat-x center;
+}

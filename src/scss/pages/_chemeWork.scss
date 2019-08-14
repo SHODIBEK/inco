@@ -1,0 +1,97 @@
+.chemeWork {
+    position: relative;
+    padding: 60px 0;
+    background-color: $color-gray;
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 340px;
+        width: 100%;
+        height: 31px;
+        background: url('../images/icons/chemeWork.png') repeat-x center;
+        background-position-x: 150px;
+    }
+    &-items {
+        width: 1440px;
+        margin: 0 auto;
+        &-top,
+        &-bottom {
+            position: relative;
+            padding: 0 80px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 100px;
+        }
+        &-top {
+            padding-bottom: 80px;
+            padding-left: 75px;
+        }
+        &-bottom {
+            grid-template-columns: repeat(auto-fill, 255px);
+            padding: 80px 80px 0;
+            padding-left: 238px;
+            .chemeWork-item-number {
+                bottom: auto;
+                top: -97px;
+                &::after {
+                    bottom: 16px;
+                }
+                &::before {
+                    top: 23px;
+                }
+            }
+        }
+    }
+    &-item {
+        position: relative;
+        &-block {
+            display: block;
+            min-height: 132px;
+            &__title {
+                margin-bottom: 10px;
+                font-weight: bold;
+                font-size: 20px;
+                line-height: 22px;
+                color: $color-black;
+            }
+            &__subtitle {
+                font-weight: normal;
+                font-size: 16px;
+                line-height: 25px;
+                color: $color-black;
+            }
+        }
+        &-number {
+            position: absolute;
+            left: -10px;
+            bottom: -90px;
+            z-index: 2;
+            font-weight: 900;
+            font-size: 35px;
+            line-height: 40px;
+            color: $color-black;
+            &::after {
+                content: "";
+                position: absolute;
+                left: -10px;
+                bottom: -20px;
+                width: 42px;
+                height: 42px;
+                background: $color-yellow;
+                border-radius: 50%;
+                z-index: -1;
+            }
+            &::before {
+                content: "";
+                position: absolute;
+                top: -17px;
+                left: 9px;
+                width: 2px;
+                height: 41px;
+                z-index: -1;
+                background: $color-yellow;
+            }
+        }
+    }
+}

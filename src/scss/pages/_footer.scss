@@ -1,0 +1,113 @@
+footer {
+    padding: 40px 0;
+    background-color: $color-black;
+    .number {
+        li {
+            color: #fff;
+        }
+    }
+}
+
+.footer {
+    &-top {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 35px;
+        padding-bottom: 30px;
+        align-items: center;
+        border-bottom: 1px solid #53585B;
+        &__right {
+            align-items: center;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 40px;
+        }
+        &-nav {
+            position: relative;
+            display: grid;
+            grid-template-columns: 194px 80px 100px;
+            grid-gap: 40px;
+            padding-right: 40px;
+            &::after {
+                content: "";
+                position: absolute;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                height: 50px;
+                border: 1px solid #53585B;
+                margin: auto;
+            }
+            &__link {
+                display: inline-block;
+                font-weight: bold;
+                font-size: 13px;
+                line-height: 15px;
+                color: $color-white;
+                text-decoration: none;
+                transition: all 0.3s ease-in-out;
+                &:hover {
+                    color: $color-yellow;
+                    transition: all 0.3s ease-in-out;
+                }
+            }
+        }
+    }
+    &-bottom {
+        padding-top: 30px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 35px;
+        align-items: center;
+        &__left {
+            display: grid;
+            grid-template-columns: 175px 1fr;
+            grid-gap: 35px;
+            padding-right: 35px;
+        }
+        &__right {
+            display: grid;
+            grid-template-columns: 330px 1fr;
+            grid-gap: 35px;
+        }
+        &__logo {
+            width: 154px;
+            height: 25px;
+            padding-right: 20px;
+            border-right: 1px solid #fff;
+            svg {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        &__copyright {
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 15px;
+            color: $color-white;
+            text-transform: uppercase;
+            span {
+                text-transform: initial;
+                color: $color-grey;
+            }
+        }
+        &__address {
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 15px;
+            color: $color-white
+        }
+        &__social {
+            .social {
+                justify-content: flex-end;
+                .ins,
+                .tg,
+                .fb {
+                    svg {
+                        fill: #fff;
+                    }
+                }
+            }
+        }
+    }
+}

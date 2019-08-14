@@ -1,0 +1,76 @@
+header
+    .container
+        .header-top
+            .logo
+                a(href="/")
+                    img(src="logo.svg", alt="logo")
+            .header-info
+                ul.number
+                    li
+                        +svg("phone")
+                        | +998 97 746 96 65
+                ul.social
+                    li
+                        a(href="#").ins
+                            +svg("ins")
+                    li
+                        a(href="#").tg
+                            +svg("tg")
+                    li
+                        a(href="#").fb
+                            +svg("fb")
+                ul.lang
+                    li.active
+                        a(href="#")
+                            | Ru
+                    li
+                        a(href="#")
+                            | Uz
+                    li
+                        a(href="#")
+                            | En
+                    li
+                        a(href="#")
+                            | Tur
+        .header-bottom
+            nav
+                ul
+                    li
+                        a(href="#").btn.btn-yellow.btn-submenu
+                            span
+                                | Каталог продукции
+                        ul.submenu
+                            li
+                                a(href="#") Химикаты предварительной  обработки
+                            li
+                                a(href="#") Красящие химикаты
+                            li
+                                a(href="#") Отделочные химикаты
+                    li
+                        a(href="#").btn.btn-home
+                            +svg("home")
+                    li
+                        a(href="#").btn.btn-submenu
+                            span
+                                | О компании
+                        ul.submenu
+                            li
+                                a(href="#") О нас
+                            li
+                                a(href="#") Миссия и ценности компани
+                            li
+                                a(href="#") Наши преимущества
+                            li
+                                a(href="#") Производство
+                            li
+                                a(href="#") Лицензии/ Сертификаты
+                            li
+                                a(href="#") Отзывы
+                    li
+                        a(href="#").btn
+                            span
+                                | Новости
+                    li
+                        a(href="#").btn
+                            span
+                                | Контакты

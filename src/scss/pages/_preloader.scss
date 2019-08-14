@@ -1,0 +1,97 @@
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #fff;
+    z-index: 1020;
+    overflow: hidden;
+    &-wrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 50%;
+        height: 50%;
+        transform: translate(-50%, -50%);
+    }
+    &-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        #logo {
+            position: absolute;
+            width: 25%;
+            height: auto;
+            margin: auto;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+}
+
+#logo {
+    animation: left 1s ease both;
+    animation-delay: 3.5s;
+    .line {
+        opacity: 0;
+        animation: fadeOut 3s both;
+        animation-delay: 3s;
+    }
+    .round {
+        opacity: 0;
+        animation: fadeOut 1s forwards;
+        &-1 {
+            animation-delay: 0;
+        }
+        &-2 {
+            animation-delay: 0.5s;
+        }
+        &-3 {
+            animation-delay: 1s;
+        }
+        &-4 {
+            animation-delay: 1.5s;
+        }
+        &-5 {
+            animation-delay: 2s;
+        }
+        &-6 {
+            animation-delay: 2.5s;
+        }
+    }
+}
+
+#logo-txt {
+    width: 70%;
+    margin-left: 30%;
+    position: relative;
+    transform: translate3d(-150px, 0, 0);
+    opacity: 0;
+    animation: right 1s ease both;
+    animation-delay: 3.5s;
+}
+
+.pace {
+    pointer-events: none;
+    user-select: none;
+}
+
+.pace-inactive {
+    display: none;
+}
+
+.pace .pace-progress {
+    background: #f5c00a;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    right: 100%;
+    width: 100%;
+    height: 2px;
+    animation: color 1s linear infinite;
+}

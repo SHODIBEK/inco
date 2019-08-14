@@ -1,0 +1,50 @@
+@keyframes draw {
+    100% {
+        stroke-dashoffset: 0;
+        fill-opacity: .5;
+    }
+}
+
+@keyframes fadeOut {
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@keyframes fadeIn {
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes left {
+    100% {
+        // margin: auto 50px;
+        left: 0;
+        transform: translateX(0);
+    }
+}
+
+@keyframes right {
+    100%{
+        opacity: 1;
+        transform: translate3d(0,0,0);
+    }
+}
+
+@keyframes color {
+    0% {
+        background: $color-red;
+    }
+    40% {
+        background: $color-yellow;
+    }
+    60% {
+        background: $color-green;
+    }
+    100% {
+        background: $color-red;
+    }
+}
