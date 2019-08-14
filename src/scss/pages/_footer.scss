@@ -16,11 +16,27 @@ footer {
         padding-bottom: 30px;
         align-items: center;
         border-bottom: 1px solid #53585B;
+        @include smobile {
+            grid-template-columns: 1fr;
+            grid-gap: 30px;
+            padding-bottom: 0;
+            border: none;
+        }
         &__right {
             align-items: center;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-gap: 40px;
+            @include smobile {
+                grid-template-columns: 1fr;
+                grid-gap: 15px;
+            }
+        }
+        &__left {
+            @include smobile {
+                padding-bottom: 30px;
+                border-bottom: 1px solid #53585B;
+            }
         }
         &-nav {
             position: relative;
@@ -28,6 +44,10 @@ footer {
             grid-template-columns: 194px 80px 100px;
             grid-gap: 40px;
             padding-right: 40px;
+            @include smobile {
+                grid-template-columns: 1fr;
+                grid-gap: 15px;
+            }
             &::after {
                 content: "";
                 position: absolute;
@@ -37,6 +57,9 @@ footer {
                 height: 50px;
                 border: 1px solid #53585B;
                 margin: auto;
+                @include smobile {
+                    display: none;
+                }
             }
             &__link {
                 display: inline-block;
@@ -52,6 +75,11 @@ footer {
                 }
             }
         }
+        .btn {
+            @include smobile {
+                width: 100%;
+            }
+        }
     }
     &-bottom {
         padding-top: 30px;
@@ -59,16 +87,33 @@ footer {
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 35px;
         align-items: center;
+        @include smobile {
+            grid-template-columns: 1fr;
+            grid-gap: 15px;
+            padding-top: 15px;
+        }
         &__left {
             display: grid;
             grid-template-columns: 175px 1fr;
             grid-gap: 35px;
             padding-right: 35px;
+            @include smobile {
+                grid-template-columns: 1fr;
+                padding: 0;
+                grid-gap: 15px;
+                order: 2;
+            }
         }
         &__right {
             display: grid;
             grid-template-columns: 330px 1fr;
             grid-gap: 35px;
+            @include smobile {
+                grid-template-columns: 1fr;
+                grid-gap: 15px;
+                padding-bottom: 30px;
+                border-bottom: 1px solid #53585B;
+            }
         }
         &__logo {
             width: 154px;
@@ -78,6 +123,11 @@ footer {
             svg {
                 width: 100%;
                 height: 100%;
+            }
+            @include smobile {
+                width: 201px;
+                height: 62px;
+                border: none;
             }
         }
         &__copyright {
@@ -105,6 +155,21 @@ footer {
                 .fb {
                     svg {
                         fill: #fff;
+                    }
+                }
+            }
+            @include smobile {
+                .social {
+                    justify-content: flex-start;
+                    li {
+                        a {
+                            width: 35px;
+                            height: 35px;
+                            svg {
+                                width: 15px;
+                                height: 15px;
+                            }
+                        }
                     }
                 }
             }

@@ -2,6 +2,10 @@ header {
     padding-top: 50px;
     padding-bottom: 15px;
     background: #f6f6f6;
+    @include smobile {
+        padding-top: 20px;
+        padding-bottom: 0;
+    }
     .logo {
         display: block;
         width: 245px;
@@ -41,6 +45,14 @@ header {
         align-items: flex-start;
         flex: 0 0 100%;
         margin-bottom: 30px;
+        @include smobile {
+            display: none;
+        }
+    }
+    &-bottom {
+        @include smobile {
+            display: none;
+        }
     }
     &-info {
         display: flex;
@@ -166,6 +178,9 @@ nav {
             position: relative;
             &:not(:last-child) {
                 margin-right: 20px;
+                @include mobile {
+                    margin-right: 12px;
+                }
             }
             .btn {
                 width: 217px;
@@ -219,3 +234,5 @@ nav {
         }
     }
 }
+
+@import "mobile-menu";

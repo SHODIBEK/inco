@@ -13,6 +13,8 @@ block content
 	//- include pages/preloader
 	include pages/header
 	.content
+		.mobile-logo
+			img(src="logo.svg", alt="Logo")
 		.top
 			.container
 				.top-wrapper
@@ -57,7 +59,7 @@ block content
 					.line-block
 			.advantage-items
 				.container
-					.advantage-items__wrap
+					.advantage-items__wrap.owl-carousel#advantage-slider
 						- var advantage = ["Высококачественное сырье от ведущих компании Basf, Wacker и Sasol", "Продукция, произведенная по инновационным немецким технологиям", "Продукция не уступает по техническим характеристикам импортным аналогам", " Быстрый самовывоз продукций со склада", "Продукция отвечает международным стандартам качества O’z DSt ISO 9001:2015(ISO 9001:2015)", "Продукция соответствует всем требованиям санитарных норм и правил", "Продукция конкурентоспособна", "Бесплатная лаборатория и консультация"]
 						- for (var i = 0; i < 8; i++) {
 							.advantage-item
@@ -152,7 +154,7 @@ block content
 					h2
 						| Новости
 					.line-block
-				.news-items
+				.news-items.owl-carousel#news-slider
 					.news-item
 						a(href="#" title="Здесь будет тестовый заголовок новости в 2 строки").news-item-link
 							.news-item-img

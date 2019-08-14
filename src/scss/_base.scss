@@ -37,6 +37,9 @@ body {
     @include mobile {
         padding: 0 15px;
     }
+    @include smobile {
+        width: 320px;
+    }
 }
 
 .btn {
@@ -54,6 +57,9 @@ body {
     border: 1px solid #B6B6B6;
     border-radius: 3px;
     transition: all 0.3s ease-in-out;
+    @include smobile {
+        width: 100%;
+    }
     &:hover {
         border-color: $color-yellow;
         background: $color-yellow;
@@ -116,6 +122,13 @@ body {
         line-height: 40px;
         color: $color-black;
     }
+    @include smobile {
+        margin-bottom: 30px;
+        h2 {
+            font-size: 25px;
+            line-height: 1;
+        }
+    }
 }
 
 .owl {
@@ -168,6 +181,13 @@ body {
         position: absolute;
         left: 71px;
         bottom: 40px;
+        @include smobile {
+            position: relative;
+            left: unset;
+            bottom: unset;
+            margin-top: 30px;
+            text-align: center;
+        }
     }
     &-dot {
         width: 16px;

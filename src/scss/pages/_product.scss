@@ -4,6 +4,12 @@
     .owl-nav {
         top: 25%;
     }
+    @include smobile {
+        padding: 30px 0;
+        .owl-nav {
+            top: 33%;
+        }
+    }
 }
 
 .product {
@@ -11,6 +17,13 @@
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-gap: 20px;
+        .owl-dots {
+            position: relative;
+            left: unset;
+            bottom: unset;
+            margin-top: 30px;
+            text-align: center;
+        }
     }
     &-item {
         &__img {
@@ -38,9 +51,15 @@
             line-height: 15px;
             color: $color-black;
         }
+        &__link {
+            display: block;
+        }
     }
     &-btn {
         margin-top: 50px;
         text-align: center;
+        @include smobile {
+            margin-top: 30px;
+        }
     }
 }
