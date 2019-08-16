@@ -4,13 +4,15 @@ import './vendor';
 $(document).ready(() => {
     let $window = $(window);
     let submenu = $('.btn-submenu');
-    let productSlider = $("#product-carousel");
-    let advantageSlider = $("#advantage-carousel");
+    let productSlider = $('#product-carousel');
+    let advantageSlider = $('#advantage-carousel');
     let advantageThumb = $('#advantage-thumb');
     let mobileSubmenu = $('.mobile-menu .btn-submenu');
     let mobileMenu = $('#menu');
     let advantageCarousel = $('#advantage-slider');
     let newsSlider = $('#news-slider');
+    let uploadField = $('#image_uploads');
+    let closePopup = $('.js-close');
 
     submenu.on('click', (e) => {
         e.preventDefault();
@@ -26,12 +28,12 @@ $(document).ready(() => {
 
     function parallax() {
         $('#js-scene').mousemove(function(e) {
-            parallaxIt(e, "#flask", -30);
-            parallaxIt(e, "#flask-second", -100);
+            parallaxIt(e, '#flask', -30);
+            parallaxIt(e, '#flask-second', -100);
         });
 
         function parallaxIt(e, target, movement) {
-            var $this = $("#js-scene");
+            var $this = $('#js-scene');
             var relX = e.pageX - $this.offset().left;
             var relY = e.pageY - $this.offset().top;
 
@@ -119,5 +121,56 @@ $(document).ready(() => {
             dots: true,
             navText: ['<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 7.5H1M1 7.5L7.5 1M1 7.5L7.5 14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>', '<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 7.5L14 7.5M14 7.5L7.5 14M14 7.5L7.5 1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'],
         });
+
+        $window.scroll(function() {
+            let e = $('table');
+
+            if (e.length === 1) {
+                $('.swipe-table').length === 0 &&
+                    $('body').append(
+                        '<div class="swipe-table"><span class="swipe_table"></span></div>'
+                    );
+
+                let a = e.offset();
+                let t = e.innerHeight();
+                let i = a.top + t;
+                let s = $(window).scrollTop() + $(window).height();
+
+                let l = a.top + (t - 100) / 2;
+
+                i < s &&
+                    ($('.swipe-table').css({
+                            top: l
+                        }),
+                        $('.swipe-table').fadeIn('slow'),
+                        setTimeout(() => {
+                            $('.swipe-table').fadeOut('slow');
+                        }, 2500));
+            }
+        });
     }
+    // upload img
+    uploadField.on('change', function() {
+        if (this.files[0].size > 2097152) {
+            this.value = '';
+            $('.upload-error').css('display', 'block');
+        } else {
+            $(this).closest('.upload-img').css('display', 'none');
+            $('.upload-done').css('display', 'block');
+            $('.upload-error').css('display', 'none');
+        };
+    });
+
+    closePopup.on('click', function() {
+        $(this).closest('.popup').fadeOut();
+    });
+    jQuery(function($) {
+        $(document).mouseup(function(e) {
+            var div = $('.popup-wrap');
+            if (!div.is(e.target) &&
+                div.has(e.target).length === 0) {
+                div.closest('.popup').fadeOut();
+            }
+        });
+    });
 });

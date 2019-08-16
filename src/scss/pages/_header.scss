@@ -1,7 +1,7 @@
 header {
     padding-top: 50px;
     padding-bottom: 15px;
-    background: #f6f6f6;
+    background: $color-bg;
     @include smobile {
         padding-top: 20px;
         padding-bottom: 0;
@@ -230,6 +230,37 @@ nav {
                     background: $color-gray;
                     transition: all 0.3s ease-in-out;
                 }
+            }
+        }
+    }
+}
+
+.inner-page {
+    header {
+        position: relative;
+        padding-bottom: 60px;
+        &::after,
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            height: 10px;
+            background: url('../images/icons/line.png') repeat-x center;
+        }
+        &::after {
+            left: 0;
+            width: 40%;
+        }
+        &::before {
+            right: 0;
+            width: 25%;
+        }
+        @include mobile {
+            &::before {
+                display: none;
+            }
+            &::after {
+                width: 50%;
             }
         }
     }

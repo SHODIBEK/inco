@@ -18,3 +18,44 @@
         height: 11.14px;
     }
 }
+
+.uploads-icon {
+    position: relative;
+    margin-left: 37px;
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -37px;
+        margin: auto;
+        width: 23px;
+        height: 23px;
+        background: url('../images/icons/uploads.svg') no-repeat center;
+    }
+}
+
+.close {
+    display: inline-block;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    &::after,
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        width: 1px;
+        height: 100%;
+        background: $color-white;
+        transform: rotate(-45deg);
+    }
+    &::before {
+        transform: rotate(45deg);
+    }
+}

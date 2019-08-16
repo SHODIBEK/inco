@@ -1,0 +1,64 @@
+extends pug/base
+
+append vars
+    - title = 'Новости'
+    - meta.description = 'Описание страницы'
+    - meta.viewport = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
+    - link.icon = './favicon.ico'
+    - meta.formatDetection = 'telephone=no'
+    - meta.themeColor = '#03428d'
+    - defaultLink = 'javascript:void(0);'
+    - body.classList = ['inner-page']
+
+block content
+    include pages/header
+    .content
+        .container
+            .crumbs
+                ul
+                    li
+                        a(href=`/` title="На главную")
+                            | Главная
+                    li
+                        | Новости
+                .navigation-title
+                        h1
+                            | Новости
+            .news
+                .news-items
+                    - for (var i = 0; i < 3; i++) {
+                        .news-item
+                            a(href="#" title="Здесь будет тестовый заголовок новости в 2 строки").news-item-link
+                                .news-item-img
+                                    img(src="images/content/news-1.jpg", alt="news")
+                                span.date.news-item-date
+                                    | 22 июля 2019 г.
+                                .news-item-title
+                                    | Здесь будет тестовый заголовок новости в 2 строки
+                                .news-item-subtitle
+                                    | По мере возникновения потребности у клиента мы проводим бесплатные анализы в нашей лаборатории (анализ качества воды).
+                        .news-item
+                            a(href="#" title="Здесь будет заголовок").news-item-link
+                                .news-item-img
+                                    img(src="images/content/news-1.jpg", alt="news")
+                                span.date.news-item-date
+                                    | 22 июля 2019 г.
+                                .news-item-title
+                                    | Здесь будет заголовок
+                                .news-item-subtitle
+                                    | По мере возникновения потребности у клиента мы проводим бесплатные анализы.
+                        .news-item
+                            a(href="#" title="Здесь будет тестовый заголовок новости в 2 строки").news-item-link
+                                .news-item-img
+                                    img(src="images/content/news-1.jpg", alt="news")
+                                span.date.news-item-date
+                                    | 22 июля 2019 г.
+                                .news-item-title
+                                    | Здесь будет тестовый заголовок новости в 2 строки
+                                .news-item-subtitle
+                                    | По мере возникновения потребности у клиента мы проводим бесплатные анализы в нашей лаборатории (анализ качества воды.
+                    - }
+                .news-btn
+                    button(type="button").btn
+                       | Загрузить еще
+    include pages/footer

@@ -28,9 +28,9 @@
 }
 
 @keyframes right {
-    100%{
+    100% {
         opacity: 1;
-        transform: translate3d(0,0,0);
+        transform: translate3d(0, 0, 0);
     }
 }
 
@@ -46,5 +46,38 @@
     }
     100% {
         background: $color-red;
+    }
+}
+
+@keyframes swipe {
+    0% {
+        transform: translateX(-50%);
+    }
+    50% {
+        transform: translateX(50%);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes error {
+    0% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(10px);
+    }
+    40% {
+        transform: translateX(-10px);
+    }
+    60% {
+        transform: translateX(10px);
+    }
+    80% {
+        transform: translateX(-10px);
+    }
+    100% {
+        transform: translateX(0px);
     }
 }

@@ -14,11 +14,13 @@
     &-items {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-gap: 20px;
+        grid-gap: 40px 20px;
         @include smobile {
             .owl-nav {
                 top: 70px;
             }
+            grid-template-columns: 1fr;
+            grid-gap: 30px;
         }
     }
     &-item {
@@ -32,6 +34,9 @@
             width: 100%;
             height: 203px;
             overflow: hidden;
+            @include smobile {
+                height: 180px;
+            }
             img {
                 display: block;
                 width: 100%;
@@ -53,6 +58,11 @@
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
+            @include smobile {
+                font-size: 17px;
+                line-height: 19px;
+                min-height: 38px;
+            }
         }
         &-subtitle {
             margin-top: 20px;
@@ -63,6 +73,11 @@
             -webkit-line-clamp: 4;
             -webkit-box-orient: vertical;
             overflow: hidden;
+            @include smobile {
+                font-size: 14px;
+                line-height: 17px;
+                margin-top: 10px;
+            }
         }
     }
     &-btn {
@@ -70,6 +85,40 @@
         text-align: center;
         @include smobile {
             margin-top: 30px;
+        }
+    }
+    &-other {
+        margin-top: 70px;
+        @include smobile {
+            margin-top: 30px;
+        }
+        &__title {
+            position: relative;
+            padding-right: 60%;
+            margin-bottom: 40px;
+            font-weight: 900;
+            font-size: 35px;
+            line-height: 1;
+            color: $color-black;
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                width: 60%;
+                height: 10px;
+                margin: auto;
+                background: url('../images/icons/line.png') repeat-x center;
+            }
+            @include smobile {
+                padding-right: 0;
+                margin-bottom: 20px;
+                font-size: 22px;
+                &::after {
+                    display: none;
+                }
+            }
         }
     }
 }

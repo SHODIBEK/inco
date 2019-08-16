@@ -10,6 +10,7 @@ html {
 
 button {
     outline: none;
+    cursor: pointer;
 }
 
 ul,
@@ -29,6 +30,7 @@ body {
     font-size: $base-font-size;
     overflow-x: hidden;
     color: $color-black;
+    background-color: $color-bg;
 }
 
 .container {
@@ -39,6 +41,16 @@ body {
     }
     @include smobile {
         width: 320px;
+    }
+}
+
+.inner-page {
+    .content {
+        margin: 60px 0;
+        min-height: calc(100vh - 574px);
+        @include smobile {
+            margin: 30px 0;
+        }
     }
 }
 
@@ -53,6 +65,7 @@ body {
     font-weight: bold;
     color: $color-metalic;
     padding: 0 34px;
+    background: transparent;
     height: 50px;
     border: 1px solid #B6B6B6;
     border-radius: 3px;
@@ -211,13 +224,204 @@ body {
     line-height: 25px;
     color: $color-black;
     margin-left: 30px;
+    @include smobile {
+        font-size: 14px;
+        line-height: 1;
+    }
     &::after {
         content: "";
         position: absolute;
-        top: 2px;
+        top: 0;
         left: -30px;
+        bottom: 0;
         width: 22px;
         height: 22px;
+        margin: auto;
         background: url('../images/icons/date.svg') no-repeat center;
+    }
+}
+
+.crumbs {
+    margin-bottom: 40px;
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        word-break: break-all;
+        li {
+            position: relative;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 14px;
+            color: $color-blue;
+            text-decoration-line: underline;
+            @include smobile {
+                font-size: 12px;
+            }
+            &:not(:last-child) {
+                margin-right: 30px;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 6px;
+                    right: -22px;
+                    width: 14px;
+                    height: 1px;
+                    transform: rotate(120deg);
+                    background: $color-default;
+                }
+                @include smobile {
+                    margin-right: 15px;
+                    &::after {
+                        top: 7px;
+                        right: -12px;
+                        width: 10px;
+                    }
+                }
+            }
+            a {
+                display: inline-block;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 13px;
+                color: $color-default;
+                @include smobile {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+    @include smobile {
+        margin-bottom: 20px;
+    }
+}
+
+.navigation-title {
+    margin-top: 40px;
+    h1 {
+        margin: 0;
+        font-size: 35px;
+        line-height: 1.2;
+        @include smobile {
+            font-size: 22px;
+        }
+    }
+    @include smobile {
+        margin-top: 20px;
+    }
+}
+
+.swipe_table {
+    display: inline-block;
+    width: 35px;
+    height: 41px;
+    background: url('../images/icons/swipe.svg') no-repeat center;
+}
+
+.swipe-table {
+    display: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    background: 0 0;
+    z-index: 2;
+}
+
+.swipe-table .swipe_table {
+    animation: swipe 2s infinite;
+    max-width: 100%;
+}
+
+.input-group {
+    position: relative;
+    width: inherit;
+    input {
+        width: 100%;
+        height: 50px;
+        font-size: 16px;
+        padding: 10px 20px;
+        color: $color-black;
+        border: 1px solid $color-grey;
+        @include smobile {
+            font-size: 14px;
+        }
+        &::placeholder {
+            font-size: 16px;
+            color: $color-black;
+            @include smobile {
+                font-size: 14px;
+            }
+        }
+    }
+    &.error {
+        animation: error 400ms linear forwards;
+        input {
+            border-color: $color-red;
+            &::placeholder {
+                color: $color-red;
+            }
+        }
+    }
+}
+
+.visualCaptcha {
+    &-possibilities {
+        display: flex;
+        flex-wrap: wrap;
+        @include smobile {
+            justify-content: space-between;
+        }
+        .img {
+            display: block;
+            &:not(:last-child) {
+                margin-right: 10px;
+                @include smobile {
+                    margin-right: 0;
+                }
+            }
+        }
+        a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 55px;
+            height: 55px;
+            border: 1px solid $color-metalic;
+            border-radius: 50%;
+            transition: all 0.3s ease-in-out;
+            @include smobile {
+                width: 41px;
+                height: 41px;
+            }
+            @include hover {
+                &:hover {
+                    border-color: $color-yellow;
+                    background: $color-yellow;
+                    transition: all 0.3s ease-in-out;
+                }
+            }
+            img {
+                display: block;
+                max-width: 100%;
+                height: auto;
+                @include smobile {
+                    width: 20px;
+                }
+            }
+        }
+    }
+    &-explanation {
+        margin-top: 20px;
+        font-size: 14px;
+        color: $color-black;
+        word-break: break-word;
+        @include smobile {
+            font-size: 12px;
+        }
+        &.error {
+            color: $color-red;
+        }
     }
 }

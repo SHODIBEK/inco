@@ -1,0 +1,144 @@
+extends pug/base
+
+append vars
+    - title = 'Контакты'
+    - meta.description = 'Описание страницы'
+    - meta.viewport = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
+    - link.icon = './favicon.ico'
+    - meta.formatDetection = 'telephone=no'
+    - meta.themeColor = '#03428d'
+    - defaultLink = 'javascript:void(0);'
+    - body.classList = ['inner-page']
+
+block content
+    include pages/header
+    .content
+        .crumbs
+            .container
+                ul
+                    li
+                        a(href=`/` title="На главную")
+                            | Главная
+                    li
+                        | Контакты
+                .navigation-title
+                        h1
+                            | Контакты
+        .contact
+            .contact-map
+                .contact-map__iframe
+                    picture
+                        <source srcset="images/content/map-mobile.jpg" media="(max-width: 1023px)">
+                        img(src="images/content/map.jpg", alt="map")
+                .container
+                    .contact-map__info
+                        ul
+                            li.location
+                                +svg("location")
+                                p <b>100022</b>, Республика Узбекистан, город Ташкент, Мирабадский район, ул. Фидокор, 32.
+                        ul
+                            li.call
+                                +svg("phone")
+                                p <span>+998 97 746 96 65</span>
+                            li
+                                +svg("time")
+                                p <span>с 9:00 до 18:00</span> Сб Вс выходной
+                            li
+                                +svg("mail")
+                                a(href="mailto:info@incochemical.ru") info@incochemical.ru
+                        ul
+                            li
+                                | <span>Следите за нами в:</span>
+                            li
+                                ul.social
+                                    li
+                                        a(href="#").ins
+                                            +svg("ins")
+                                    li
+                                        a(href="#").tg
+                                            +svg("tg")
+                                    li
+                                        a(href="#").fb
+                                            +svg("fb")
+                        ul
+                            li
+                                span
+                                    | Отдел продаж:
+                            li
+                                +svg("phone")
+                                span
+                                    | +998 97 746 96 65
+                            li
+                                +svg("mail")
+                                a(href="mailto:info@incochemical.ru") info@incochemical.ru
+                        ul
+                            li
+                                span
+                                    | Отдел маркетинга:
+                            li
+                                +svg("phone")
+                                span
+                                    | +998 97 746 96 65
+                            li
+                                +svg("mail")
+                                a(href="mailto:info@incochemical.ru") info@incochemical.ru
+            .contact-form
+                .container
+                    .contact-form__title
+                        | Форма обратной связи
+                    form(action="/" method="GET")
+                        .contact-form-wrap
+                            .contact-form-groups
+                                .input-group
+                                    input(type="text" name="name" placeholder="ФИО")
+                                .input-group
+                                    input(type="text" name="org" placeholder="Организации")
+                                .input-group
+                                    input(type="email" name="email" placeholder="Электронный адрес")
+                                .input-group
+                                    input(type="text" name="text" placeholder="Введите сообщение")
+                            .contact-form-bottom
+                                <div class="visualCaptcha" id="simple-captcha">
+                                    <div class="visualCaptcha-possibilities">
+                                        <div class="img">
+                                            <a href="javascript:void(0);" role='shirt'>
+                                                <img src="images/icons/shirt.svg" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="img">
+                                            <a href="javascript:void(0);" role='headphone'>
+                                                <img src="images/icons/headphone.svg" alt="" >
+                                            </a>
+                                        </div>
+                                        <div class="img">
+                                            <a href="javascript:void(0);" class='active' role='auto'>
+                                                <img src="images/icons/auto.svg" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="img">
+                                            <a href="javascript:void(0);" role='buggy'>
+                                                <img src="images/icons/buggy.svg" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="img">
+                                            <a href="javascript:void(0);" role='coffee'>
+                                                <img src="images/icons/coffee.svg" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="img">
+                                            <a href="javascript:void(0);" role='airplain'>
+                                                <img src="images/icons/airplain.svg" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="visualCaptcha-explanation">Выберите&nbsp;<span class="active">"Детская коляска"</span>, чтобы подтвердить, что&nbsp;Вы не&nbsp;робот</div>
+                                </div>
+                                .contact-form__btn
+                                    button(type="submit").btn
+                                        | ОТправить 
+    .popup#cpopup(style="display:block;")
+        .popup-wrap
+            span.close.js-close
+            .cpopup-text
+                | <span>Спасибо.</span> Наши специалисты свяжутя  с вами в течении нескольких минут
+    include pages/footer

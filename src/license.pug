@@ -1,0 +1,42 @@
+extends pug/base
+
+append vars
+    - title = 'Лицензии'
+    - meta.description = 'Описание страницы'
+    - meta.viewport = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
+    - link.icon = './favicon.ico'
+    - meta.formatDetection = 'telephone=no'
+    - meta.themeColor = '#03428d'
+    - defaultLink = 'javascript:void(0);'
+    - body.classList = ['inner-page']
+
+block content
+    include pages/header
+    .content
+        .container
+            .crumbs
+                ul
+                    li
+                        a(href=`/` title="На главную")
+                            | Главная
+                    li
+                        | Лицензии
+                .navigation-title
+                        h1
+                            | Лицензии
+            .licenses
+                .default-section
+                    p
+                        | Распишите о разделах сайта, укажите, где и что находиться, что можно найти в фотогалерее, каталоге продукции. Текст необходимо составлять живой, чтобы посетитель читал его быстро и легко, заинтересовываясь с каждой строчкой. Не стоит перегружать текст специальными терминами или писать объемный материал. 
+                .licenses-items
+                    - for (var i = 0; i < 8; i++) {
+                        .licenses-item
+                            .licenses-item__img
+                                img(src="images/content/licenses.jpg" alt="Название лицензии")
+                            .licenses-item__name
+                                | Здесь будет какая то надпись, которая относится к этой лицензии
+                    - }
+                .licenses-btn
+                    button(type="button" arial-label="Показать еще").btn
+                        | Показать еще
+    include pages/footer

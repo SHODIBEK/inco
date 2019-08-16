@@ -246,3 +246,52 @@
         margin: 0;
     }
 }
+
+.inner-page {
+    .advantage {
+        &-items {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 40px 25px;
+            margin: 50px 0;
+            &::before {
+                display: none;
+            }
+            @include mobile {
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 30px 15px;
+                margin: 30px 0;
+            }
+        }
+        &-item {
+            padding: 0 20px;
+            &::after {
+                display: none;
+            }
+            @include mobile {
+                padding: 0;
+                width: 100%;
+                min-height: auto;
+            }
+            &__name {
+                font-weight: normal;
+                font-size: 16px;
+                line-height: 20px;
+                text-align: center;
+                color: $color-black;
+                @include mobile {
+                    font-size: 14px;
+                    word-break: break-word;
+                }
+            }
+            &__icon {
+                display: flex;
+                justify-content: center;
+                @include mobile {
+                    width: 75px;
+                    height: 75px;
+                }
+            }
+        }
+    }
+}
