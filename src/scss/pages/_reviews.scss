@@ -46,7 +46,7 @@
                 line-height: 1.2;
                 color: $color-default;
                 word-break: break-word;
-                @include smobile {
+                @include mobile {
                     font-size: 14px;
                 }
             }
@@ -161,9 +161,11 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-gap: 40px;
+            @include mobile {
+                grid-gap: 30px;
+            }
             @include smobile {
                 grid-template-columns: 1fr;
-                grid-gap: 30px;
             }
         }
         &__btn {

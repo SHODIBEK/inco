@@ -10,10 +10,10 @@ append vars
 	- defaultLink = 'javascript:void(0);'
 
 block content
-	//- include pages/preloader
+	include pages/preloader
 	include pages/header
 	.content
-		.top
+		.top#jsanimation
 			.container
 				.top-wrapper
 					.top-left
@@ -40,7 +40,8 @@ block content
 						- var b = ["Красящие химикаты", "Химикаты предварительной обработки", "Отделочные химикаты", "Красящие химикаты", "Химикаты предварительной обработки", "Отделочные химикаты", "Красящие химикаты"]
 						.product-item
 							a(href="#" title=`${a[i]}`).product-item__link
-								img(src=`images/content/item-${i+1}.png`, alt=`item-${i+1}`).product-item__img
+								picture.product-item__imgWrap
+									img(src=`images/content/item-${i+1}.png`, alt=`item-${i+1}`).product-item__img
 								span.product-item__name
 									| #{a[i]}
 								span.product-item__desc

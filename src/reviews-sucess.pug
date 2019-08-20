@@ -46,11 +46,11 @@ block content
                         form(action="/" method="GET")
                             .reviews-form__igroup
                                 .input-group
-                                    input(type="text" name="name" placeholder="Представтесь пожалуйста")
+                                    input(type="text" name="name" placeholder="Представтесь пожалуйста" required)
                                 .input-group
-                                    input(type="email" name="email" placeholder="Ваш электронный адрес почты")
+                                    input(type="email" name="email" placeholder="Ваш электронный адрес почты" required)
                                 .input-group
-                                    input(type="text" name="text" placeholder="Введите сообщение")
+                                    input(type="text" name="text" placeholder="Введите сообщение" required)
                             .reviews-form__bottom
                                 <div class="visualCaptcha" id="simple-captcha">
                                     <div class="visualCaptcha-possibilities">

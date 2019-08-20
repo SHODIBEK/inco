@@ -89,13 +89,13 @@ block content
                     form(action="/" method="GET")
                         .contact-form-wrap
                             .contact-form-groups
-                                .input-group
+                                .input-group.error
                                     input(type="text" name="name" placeholder="ФИО" required)
-                                .input-group
+                                .input-group.error
                                     input(type="text" name="org" placeholder="Организации" required)
-                                .input-group
+                                .input-group.error
                                     input(type="email" name="email" placeholder="Электронный адрес" required)
-                                .input-group
+                                .input-group.error
                                     input(type="text" name="text" placeholder="Введите сообщение" required)
                             .contact-form-bottom
                                 <div class="visualCaptcha" id="simple-captcha">
@@ -131,14 +131,10 @@ block content
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="visualCaptcha-explanation">Выберите&nbsp;<span class="active">"Детская коляска"</span>, чтобы подтвердить, что&nbsp;Вы не&nbsp;робот</div>
+                                    <div class="visualCaptcha-explanation error">Выберите&nbsp;<span class="active">"Детская коляска"</span>, чтобы подтвердить, что&nbsp;Вы не&nbsp;робот</div>
                                 </div>
                                 .contact-form__btn
                                     button(type="submit").btn
                                         | ОТправить 
-    .popup#cpopup(style="display:block;")
-        .popup-wrap
-            span.close.js-close
-            .cpopup-text
-                | <span>Спасибо.</span> Наши специалисты свяжутя  с вами в течении нескольких минут
+    include pages/cpopup
     include pages/footer

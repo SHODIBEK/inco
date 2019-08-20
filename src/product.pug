@@ -1,0 +1,100 @@
+extends pug/base
+
+append vars
+    - title = 'Incochem ph 45 '
+    - meta.description = 'Описание страницы'
+    - meta.viewport = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
+    - link.icon = './favicon.ico'
+    - meta.formatDetection = 'telephone=no'
+    - meta.themeColor = '#03428d'
+    - defaultLink = 'javascript:void(0);'
+    - body.classList = ['inner-page']
+
+block content
+    include pages/header
+    .content
+        .container
+            .crumbs
+                ul
+                    li
+                        a(href=`/` title="На главную")
+                            | Главная
+                    li
+                        a(href=`#` title="Каталог продукции")
+                            | Каталог продукции
+                    li
+                        | Incochem ph 45 
+            .product
+                .product-wrap
+                    .product-nav
+                        .product-nav__mobile.js-navMobile
+                            | фильтр
+                        .product-nav__block.js-mobile-toggle
+                            ul.product-nav__lists
+                                li.product-nav__list
+                                    a(href="#").product-nav__link
+                                        | Красящие химикаты
+                                li.product-nav__list
+                                    a(href="#").product-nav__link
+                                        | Химикаты предварительной обработки
+                                li.product-nav__list
+                                    a(href="#").product-nav__link
+                                        | Отделочные химикаты
+                        .product-nav__block.js-mobile-toggle
+                            .product-nav__checklist
+                                .product-nav__checkbox
+                                    input(type="checkbox" name="r1" id="r1")
+                                    label(for="r1") Красящие химикаты
+                                .product-nav__checkbox
+                                    input(type="checkbox" name="r2" id="r2")
+                                    label(for="r2") Химикаты предварительной обработки
+                                .product-nav__checkbox
+                                    input(type="checkbox" name="r3" id="r3")
+                                    label(for="r3") Отделочные химикаты
+                            .product-nav__search
+                                form(action="/" method="GET")
+                                    input(type="search" name="search" placeholder="Поиск")
+                                    button(type="submit").search-icon
+                    .product-items-wrap
+                        .navigation-title
+                            h1
+                                | Incochem ph 45
+                        .product-inner
+                            .default-section
+                                img(src="images/content/item-3.jpg", alt="Incochem ph 45" style="float:left; margin-right: 20px;")
+                                b
+                                    | Характеристики:
+                                br
+                                br
+                                p
+                                    | Страна производитель: Узбекистан
+                                p
+                                    | Цвет: Фуксия
+                                br
+                                b
+                                    | Краткое описание товара:
+                                br
+                                p
+                                    | Равным образом новая модель организационной деятельности позволяет выполнять важные задания по разработке новых предложений. Идейные соображения высшего порядка, а также дальнейшее развитие различных форм деятельности требуют от нас анализа модели развития. Идейные соображения высшего порядка, а также рамки и место обучения кадров позволяет оценить значение существенных финансовых и административных условий. Идейные соображения высшего
+                            .product-btn
+                                a(href="#").back-btn
+                                    +svg("back-arrow")
+                                    span Вернуться на главную
+                .product-other
+                    .product-other__title
+                        | Другие товары
+                    .product-other-items
+                        .product-items.owl-carousel#product-carousel
+                            - for (var i = 0; i < 7; i++) {
+                                - var a = ["Incochem ph 45", "Incowet N 100", "Incochem ph 45", "Incowet N 100", "Incochem ph 45", "Incowet N 100", "Incochem ph 45"]
+                                - var b = ["Красящие химикаты", "Химикаты предварительной обработки", "Отделочные химикаты", "Красящие химикаты", "Химикаты предварительной обработки", "Отделочные химикаты", "Красящие химикаты"]
+                                .product-item
+                                    a(href="#" title=`${a[i]}`).product-item__link
+                                        picture.product-item__imgWrap
+                                            img(src=`images/content/item-${i+1}.png`, alt=`item-${i+1}`).product-item__img
+                                        span.product-item__name
+                                            | #{a[i]}
+                                        span.product-item__desc
+                                            | #{b[i]}
+                            - }
+    include pages/footer

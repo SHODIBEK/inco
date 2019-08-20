@@ -1,6 +1,23 @@
 /* eslint-disable indent */
 import './vendor';
 
+var preload = document.getElementById('preloader');
+var top = document.getElementById('jsanimation');
+console.log(top);
+
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        preload.className += ' fade';
+    }, 5500);
+
+    setTimeout(function() {
+        top.className += ' play';
+    }, 6000);
+    setTimeout(function() {
+        preload.style.display = 'none';
+    }, 6000);
+});
+
 $(document).ready(() => {
     let $window = $(window);
     let submenu = $('.btn-submenu');
@@ -13,6 +30,7 @@ $(document).ready(() => {
     let newsSlider = $('#news-slider');
     let uploadField = $('#image_uploads');
     let closePopup = $('.js-close');
+    let filter = $('.js-navMobile');
 
     submenu.on('click', (e) => {
         e.preventDefault();
@@ -46,15 +64,10 @@ $(document).ready(() => {
 
     $(window).on('load', () => {
         setTimeout(() => {
-            $('#preloader').fadeOut('slow');
-        }, 5500);
-        setTimeout(() => {
-            $('.top').addClass('play');
-        }, 6000);
-        setTimeout(() => {
             parallax();
         }, 7000);
     });
+
 
     productSlider.owlCarousel({
         loop: true,
@@ -172,5 +185,9 @@ $(document).ready(() => {
                 div.closest('.popup').fadeOut();
             }
         });
+    });
+
+    filter.on('click', function() {
+        $('.js-mobile-toggle').slideToggle();
     });
 });

@@ -76,6 +76,9 @@ header {
         font-size: 18px;
         line-height: 17px;
         color: $color-metalic;
+        @include mobile {
+            font-size: 17px;
+        }
         svg {
             display: inline-block;
             vertical-align: middle;
@@ -185,10 +188,10 @@ nav {
             .btn {
                 width: 217px;
                 &-home {
-                    width: unset;
+                    width: auto;
                 }
                 &-yellow {
-                    width: unset;
+                    width: auto;
                 }
             }
         }
@@ -239,6 +242,9 @@ nav {
     header {
         position: relative;
         padding-bottom: 60px;
+        @include smobile {
+            padding-bottom: 30px;
+        }
         &::after,
         &::before {
             content: "";
@@ -255,7 +261,7 @@ nav {
             right: 0;
             width: 25%;
         }
-        @include mobile {
+        @include smobile {
             &::before {
                 display: none;
             }

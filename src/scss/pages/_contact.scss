@@ -6,13 +6,17 @@
             flex-direction: column-reverse;
         }
         &__iframe {
-            position: relative;
+            position: absolute;
             display: block;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 756px;
+            height: 100%;
             overflow: hidden;
+            z-index: -1;
             @include smobile {
                 height: 345px;
+                position: relative;
             }
             img {
                 width: 100%;
@@ -25,15 +29,13 @@
             }
         }
         &__info {
-            position: absolute;
+            display: inline-block;
             width: 470px;
             height: 100%;
-            top: 0;
             z-index: 1;
             background: $color-yellow;
             padding: 40px;
             @include smobile {
-                position: relative;
                 width: 100%;
                 padding: 20px 15px;
             }
@@ -147,13 +149,21 @@
             }
         }
         &-groups {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-gap: 20px;
+            display: flex;
+            justify-content: space-between;
             margin-bottom: 40px;
-            @include smobile {
-                grid-template-columns: 1fr;
-                margin-bottom: 20px;
+            @supports (display: grid) {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-gap: 20px;
+                margin-bottom: 40px;
+                @include smobile {
+                    grid-template-columns: 1fr;
+                    margin-bottom: 20px;
+                }
+            }
+            .input-group {
+                width: 241px;
             }
         }
         &-bottom {

@@ -1,4 +1,9 @@
 .default-section {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
     img {
         display: block;
         max-width: 100%;
