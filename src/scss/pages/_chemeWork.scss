@@ -1,53 +1,64 @@
 .chemeWork {
-    position: relative;
     padding: 60px 0;
     background-color: $color-gray;
-    &::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 340px;
-        width: 100%;
-        height: 31px;
-        background: url('../images/icons/chemeWork.png') repeat-x center;
-        background-position-x: 150px;
-    }
     @include smobile {
         padding: 30px 0;
     }
     &-items {
-        width: 1440px;
-        margin: 0 auto;
-        &-top,
-        &-bottom {
-            position: relative;
-            padding: 0 80px;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-gap: 100px;
-        }
-        &-top {
-            padding-bottom: 80px;
-            padding-left: 75px;
-        }
-        &-bottom {
-            grid-template-columns: repeat(auto-fill, 255px);
-            padding: 80px 80px 0;
-            padding-left: 238px;
-            .chemeWork-item-number {
-                bottom: auto;
-                top: -97px;
-                &::after {
-                    bottom: 16px;
-                }
-                &::before {
-                    top: 23px;
-                }
-            }
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 31px;
+            height: 100%;
+            margin: auto;
+            background: url(../images/icons/chemeWork.png) repeat-y center;
         }
     }
     &-item {
         position: relative;
+        align-self: flex-start;
+        width: 50%;
+        padding-right: 100px;
+        margin-bottom: 40px;
+        @include smobile {
+            padding-right: 40px;
+            margin-bottom: 20px;
+        }
+        &:last-child {
+            margin-bottom: 0;
+        }
+        &:nth-child(even) {
+            align-self: flex-end;
+            padding-right: 0;
+            padding-left: 100px;
+            @include smobile {
+                padding-left: 40px;
+            }
+            .chemeWork-item-number {
+                right: auto;
+                left: -15px;
+                @include smobile {
+                    left: -6px;
+                }
+            }
+            .chemeWork-item-number {
+                &::before {
+                    left: auto;
+                    right: -50px;
+                    @include smobile {
+                        right: -10px;
+                    }
+                }
+            }
+        }
         &-block {
             display: block;
             min-height: 132px;
@@ -57,23 +68,38 @@
                 font-size: 20px;
                 line-height: 22px;
                 color: $color-black;
+                @include smobile {
+                    word-break: break-word;
+                    font-size: 14px;
+                    line-height: 1.2;
+                }
             }
             &__subtitle {
                 font-weight: normal;
                 font-size: 16px;
                 line-height: 25px;
                 color: $color-black;
+                @include smobile {
+                    font-size: 12px;
+                    line-height: 1.2;
+                }
             }
         }
         &-number {
             position: absolute;
-            left: -10px;
-            bottom: -90px;
+            right: -25px;
+            top: -24px;
             z-index: 2;
             font-weight: 900;
             font-size: 35px;
             line-height: 40px;
             color: $color-black;
+            @include smobile {
+                right: -25px;
+                top: -15px;
+                font-size: 22px;
+                line-height: 1;
+            }
             &::after {
                 content: "";
                 position: absolute;
@@ -84,16 +110,27 @@
                 background: $color-yellow;
                 border-radius: 50%;
                 z-index: -1;
+                @include smobile {
+                    left: -10px;
+                    bottom: -15px;
+                    width: 25px;
+                    height: 25px;
+                }
             }
             &::before {
                 content: "";
                 position: absolute;
-                top: -17px;
-                left: 9px;
-                width: 2px;
-                height: 41px;
+                top: 35px;
+                left: -70px;
+                width: 70px;
+                height: 2px;
                 z-index: -1;
                 background: $color-yellow;
+                @include smobile {
+                    top: 24px;
+                    left: -30px;
+                    width: 30px;
+                }
             }
         }
     }

@@ -85,6 +85,9 @@
         text-align: center;
         .btn {
             background-color: transparent;
+            &:hover {
+                background: $color-yellow;
+            }
         }
         @include smobile {
             margin-top: 30px;

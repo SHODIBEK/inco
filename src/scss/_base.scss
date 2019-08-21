@@ -33,6 +33,10 @@ body {
     background-color: $color-bg;
 }
 
+.wrapper {
+    overflow-x: hidden;
+}
+
 .container {
     width: $desktop-size;
     margin: 0 auto;

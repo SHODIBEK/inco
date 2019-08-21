@@ -10,181 +10,180 @@ append vars
 	- defaultLink = 'javascript:void(0);'
 
 block content
-	include pages/preloader
-	include pages/header
-	.content
-		.top#jsanimation
-			.container
-				.top-wrapper
-					.top-left
-						h1
-							| Добро пожаловать в компанию <br> <strong style="color:#03428d;">INCO CHEMICAL</strong>
-						span
-							| Здесь будет краткое описание <br> либо компании либо <br> определенного продукта
-						a(href="#").btn.btn-download
-							+svg("dw")
-							span Скачать каталог
-					.top-right(id="js-scene")
-						.top-img
-						.top-flask#flask(data-parallax-deep="1000")
-						.top-flask-second#flask-second(data-parallax-deep="1000")
-						include images/content/top.svg
-		.product-slider
-			.container
+	.wrapper
+		include pages/preloader
+		include pages/header
+		.content
+			.top#jsanimation
+				.container
+					.top-wrapper
+						.top-left
+							h1
+								| Добро пожаловать в компанию <br> <strong style="color:#03428d;">INCO CHEMICAL</strong>
+							span
+								| Здесь будет краткое описание <br> либо компании либо <br> определенного продукта
+							a(href="#").btn.btn-download
+								+svg("dw")
+								span Скачать каталог
+						.top-right(id="js-scene")
+							.top-img
+							.top-flask#flask(data-parallax-deep="1000")
+							.top-flask-second#flask-second(data-parallax-deep="1000")
+							include images/content/top.svg
+			.product-slider
+				.container
+					.tittle
+						h2 
+							| Каталог продукции
+					.product-items.owl-carousel#product-carousel
+						- for (var i = 0; i < 7; i++) {
+							- var a = ["Incochem ph 45", "Incowet N 100", "Incochem ph 45", "Incowet N 100", "Incochem ph 45", "Incowet N 100", "Incochem ph 45"]
+							- var b = ["Красящие химикаты", "Химикаты предварительной обработки", "Отделочные химикаты", "Красящие химикаты", "Химикаты предварительной обработки", "Отделочные химикаты", "Красящие химикаты"]
+							.product-item
+								a(href="#" title=`${a[i]}`).product-item__link
+									picture.product-item__imgWrap
+										img(src=`images/content/item-${i+1}.png`, alt=`item-${i+1}`).product-item__img
+									span.product-item__name
+										| #{a[i]}
+									span.product-item__desc
+										| #{b[i]}
+						- }
+					.product-btn
+						a(href="#").btn.btn-large
+							| весь каталог
+			.advantage
 				.tittle
-					h2 
-						| Каталог продукции
-				.product-items.owl-carousel#product-carousel
-					- for (var i = 0; i < 7; i++) {
-						- var a = ["Incochem ph 45", "Incowet N 100", "Incochem ph 45", "Incowet N 100", "Incochem ph 45", "Incowet N 100", "Incochem ph 45"]
-						- var b = ["Красящие химикаты", "Химикаты предварительной обработки", "Отделочные химикаты", "Красящие химикаты", "Химикаты предварительной обработки", "Отделочные химикаты", "Красящие химикаты"]
-						.product-item
-							a(href="#" title=`${a[i]}`).product-item__link
-								picture.product-item__imgWrap
-									img(src=`images/content/item-${i+1}.png`, alt=`item-${i+1}`).product-item__img
-								span.product-item__name
-									| #{a[i]}
-								span.product-item__desc
-									| #{b[i]}
-					- }
-				.product-btn
-					a(href="#").btn.btn-large
-						| весь каталог
-		.advantage
-			.tittle
+					.container
+						h2
+							| Преимущества продукции
+						.line-block
+				.advantage-items
+					.container
+						.advantage-items__wrap.owl-carousel#advantage-slider
+							- var advantage = ["Высококачественное сырье от ведущих компании Basf, Wacker и Sasol", "Продукция, произведенная по инновационным немецким технологиям", "Продукция не уступает по техническим характеристикам импортным аналогам", " Быстрый самовывоз продукций со склада", "Продукция отвечает международным стандартам качества O’z DSt ISO 9001:2015(ISO 9001:2015)", "Продукция соответствует всем требованиям санитарных норм и правил", "Продукция конкурентоспособна", "Бесплатная лаборатория и консультация"]
+							- for (var i = 0; i < 8; i++) {
+								.advantage-item
+									.advantage-item__bg(style=`background-image: url('images/content/advantagebg-${i+1}.png')`)
+									.advantage-item__icon
+										img(src=`images/icons/advantage-${i+1}.svg`)
+									.advantage-item__name
+										| #{advantage[i]}
+							- }
+				.advantage-slider
+					.container
+						.advantage-slider__items.owl-carousel#advantage-carousel
+							- for (var i = 0; i < 5; i++) {
+								.advantage-slider__item
+									img(src="images/content/slider.jpg", alt="").advantage-slider__img
+							- }
+						.advantage-slider__thumbs#advantage-thumb
+							- for (var i = 0; i < 5; i++) {
+								.advantage-slider__thumb.js-pos-thumb
+									.advantage-slider__title
+										| Бесплатная лаборатория и консультация
+									.advantage-slider__subtitle
+										| Здесь будет текст который кратко раскрывает суть того что показано на изображении в слайдере
+							- }
+			.chemeWork
 				.container
-					h2
-						| Преимущества продукции
-					.line-block
-			.advantage-items
+					.tittle
+						h2
+							| Схема работы
+					.chemeWork-items
+						.chemeWork-item
+							span.chemeWork-item-number
+								| 01
+							.chemeWork-item-block
+								.chemeWork-item-block__title
+									| Заявка клиента
+								.chemeWork-item-block__subtitle
+									| через телефон или вебсайт и наши специалисты свяжуться с вами в течении
+						.chemeWork-item
+							span.chemeWork-item-number
+								| 02
+							.chemeWork-item-block
+								.chemeWork-item-block__title
+									| Наш специалис звонит клиенту
+								.chemeWork-item-block__subtitle
+									| Уточняются детали заказа и договариваются о встрече
+						.chemeWork-item
+							span.chemeWork-item-number
+								| 03
+							.chemeWork-item-block
+								.chemeWork-item-block__title
+									| Презентация товара
+								.chemeWork-item-block__subtitle
+									| Наш специалист выезжает клиенту для бесплатной консультации, показа образцов текстильной химии
+						.chemeWork-item
+							span.chemeWork-item-number
+								| 04
+							.chemeWork-item-block
+								.chemeWork-item-block__title
+									| Составляем коммерческое предложение
+								.chemeWork-item-block__subtitle
+									| На основании итогов встречи наш специалист составляет коммерческое предложение и направляет клиенту
+						.chemeWork-item
+							span.chemeWork-item-number
+								| 05
+							.chemeWork-item-block
+								.chemeWork-item-block__title
+									| Согласование и подписание договора
+								.chemeWork-item-block__subtitle
+									| На этом этапе мы заключаем с вами договор на поставку заказанной продукции
+						.chemeWork-item
+							span.chemeWork-item-number
+								| 06
+							.chemeWork-item-block
+								.chemeWork-item-block__title
+									| Оплата по договору
+								.chemeWork-item-block__subtitle
+									| Вы оплачиваете сумму по договору
+						.chemeWork-item
+							span.chemeWork-item-number
+								| 07
+							.chemeWork-item-block
+								.chemeWork-item-block__title
+									| Самовывоз продукции
+								.chemeWork-item-block__subtitle
+									| Вы сможете быстро, в течении 1 дня забрать продукцию со склада самостоятельно
+			.inews
 				.container
-					.advantage-items__wrap.owl-carousel#advantage-slider
-						- var advantage = ["Высококачественное сырье от ведущих компании Basf, Wacker и Sasol", "Продукция, произведенная по инновационным немецким технологиям", "Продукция не уступает по техническим характеристикам импортным аналогам", " Быстрый самовывоз продукций со склада", "Продукция отвечает международным стандартам качества O’z DSt ISO 9001:2015(ISO 9001:2015)", "Продукция соответствует всем требованиям санитарных норм и правил", "Продукция конкурентоспособна", "Бесплатная лаборатория и консультация"]
-						- for (var i = 0; i < 8; i++) {
-							.advantage-item
-								.advantage-item__bg(style=`background-image: url('images/content/advantagebg-${i+1}.png')`)
-								.advantage-item__icon
-									img(src=`images/icons/advantage-${i+1}.svg`)
-								.advantage-item__name
-									| #{advantage[i]}
-						- }
-			.advantage-slider
-				.container
-					.advantage-slider__items.owl-carousel#advantage-carousel
-						- for (var i = 0; i < 5; i++) {
-							.advantage-slider__item
-								img(src="images/content/slider.jpg", alt="").advantage-slider__img
-						- }
-					.advantage-slider__thumbs#advantage-thumb
-						- for (var i = 0; i < 5; i++) {
-							.advantage-slider__thumb.js-pos-thumb
-								.advantage-slider__title
-									| Бесплатная лаборатория и консультация
-								.advantage-slider__subtitle
-									| Здесь будет текст который кратко раскрывает суть того что показано на изображении в слайдере
-						- }
-		.chemeWork
-			.tittle
-				.container
-					h2
-						| Схема работы
-			.chemeWork-items
-				.chemeWork-items-top
-					.chemeWork-item
-						span.chemeWork-item-number
-							| 01
-						.chemeWork-item-block
-							.chemeWork-item-block__title
-								| Заявка клиента
-							.chemeWork-item-block__subtitle
-								| через телефон или вебсайт и наши специалисты свяжуться с вами в течении
-					.chemeWork-item
-						span.chemeWork-item-number
-							| 03
-						.chemeWork-item-block
-							.chemeWork-item-block__title
-								| Презентация товара
-							.chemeWork-item-block__subtitle
-								| Наш специалист выезжает клиенту для бесплатной консультации, показа образцов текстильной химии
-					.chemeWork-item
-						span.chemeWork-item-number
-							| 05
-						.chemeWork-item-block
-							.chemeWork-item-block__title
-								| Согласование и подписание договора
-							.chemeWork-item-block__subtitle
-								| На этом этапе мы заключаем с вами договор на поставку заказанной продукции
-					.chemeWork-item
-						span.chemeWork-item-number
-							| 07
-						.chemeWork-item-block
-							.chemeWork-item-block__title
-								| Самовывоз продукции
-							.chemeWork-item-block__subtitle
-								| Вы сможете быстро, в течении 1 дня забрать продукцию со склада самостоятельно
-				.chemeWork-items-bottom
-					.chemeWork-item
-						span.chemeWork-item-number
-							| 02
-						.chemeWork-item-block
-							.chemeWork-item-block__title
-								| Наш специалист звонит клиенту 
-							.chemeWork-item-block__subtitle
-								| уточняются детали заказа и договариваются о встрече
-					.chemeWork-item
-						span.chemeWork-item-number
-							| 04
-						.chemeWork-item-block
-							.chemeWork-item-block__title
-								| Составляем коммерческое предложение
-							.chemeWork-item-block__subtitle
-								| На основании итогов встречи наш специалист составляет коммерческое предложение и направляет клиенту
-					.chemeWork-item
-						span.chemeWork-item-number
-							| 06
-						.chemeWork-item-block
-							.chemeWork-item-block__title
-								| Оплата по договору    
-							.chemeWork-item-block__subtitle
-								| Вы оплачиваете сумму по договору
-		.inews
-			.container
-				.tittle
-					h2
-						| Новости
-					.line-block
-				.news-items.owl-carousel#news-slider
-					.news-item
-						a(href="#" title="Здесь будет тестовый заголовок новости в 2 строки").news-item-link
-							.news-item-img
-								img(src="images/content/news-1.jpg", alt="news")
-							span.date.news-item-date
-								| 22 июля 2019 г.
-							.news-item-title
-								| Здесь будет тестовый заголовок новости в 2 строки
-							.news-item-subtitle
-								| По мере возникновения потребности у клиента мы проводим бесплатные анализы в нашей лаборатории (анализ качества воды).
-					.news-item
-						a(href="#" title="Здесь будет заголовок").news-item-link
-							.news-item-img
-								img(src="images/content/news-1.jpg", alt="news")
-							span.date.news-item-date
-								| 22 июля 2019 г.
-							.news-item-title
-								| Здесь будет заголовок
-							.news-item-subtitle
-								| По мере возникновения потребности у клиента мы проводим бесплатные анализы.
-					.news-item
-						a(href="#" title="Здесь будет тестовый заголовок новости в 2 строки").news-item-link
-							.news-item-img
-								img(src="images/content/news-1.jpg", alt="news")
-							span.date.news-item-date
-								| 22 июля 2019 г.
-							.news-item-title
-								| Здесь будет тестовый заголовок новости в 2 строки
-							.news-item-subtitle
-								| По мере возникновения потребности у клиента мы проводим бесплатные анализы в нашей лаборатории (анализ качества воды.
-				.news-btn
-					a(href="#").btn.btn-large
-						| Все новости
-	include pages/footer
+					.tittle
+						h2
+							| Новости
+						.line-block
+					.news-items.owl-carousel#news-slider
+						.news-item
+							a(href="#" title="Здесь будет тестовый заголовок новости в 2 строки").news-item-link
+								.news-item-img
+									img(src="images/content/news-1.jpg", alt="news")
+								span.date.news-item-date
+									| 22 июля 2019 г.
+								.news-item-title
+									| Здесь будет тестовый заголовок новости в 2 строки
+								.news-item-subtitle
+									| По мере возникновения потребности у клиента мы проводим бесплатные анализы в нашей лаборатории (анализ качества воды).
+						.news-item
+							a(href="#" title="Здесь будет заголовок").news-item-link
+								.news-item-img
+									img(src="images/content/news-1.jpg", alt="news")
+								span.date.news-item-date
+									| 22 июля 2019 г.
+								.news-item-title
+									| Здесь будет заголовок
+								.news-item-subtitle
+									| По мере возникновения потребности у клиента мы проводим бесплатные анализы.
+						.news-item
+							a(href="#" title="Здесь будет тестовый заголовок новости в 2 строки").news-item-link
+								.news-item-img
+									img(src="images/content/news-1.jpg", alt="news")
+								span.date.news-item-date
+									| 22 июля 2019 г.
+								.news-item-title
+									| Здесь будет тестовый заголовок новости в 2 строки
+								.news-item-subtitle
+									| По мере возникновения потребности у клиента мы проводим бесплатные анализы в нашей лаборатории (анализ качества воды.
+					.news-btn
+						a(href="#").btn.btn-large
+							| Все новости
+		include pages/footer
