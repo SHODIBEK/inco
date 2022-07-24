@@ -15,9 +15,13 @@ To deploy this project run
 
 
 ## 🛠 Skills
-Pug(Jade), SCSS, JavaScript(Jquery), Gulp
+- Pug(Jade),
+- SCSS, 
+- JavaScript(Jquery), 
+- Gulp
 
 
 ## Screenshots
 
 ![App Screenshot](https://i.ibb.co/PzBh5f5/screencapture-incochemical-uz-2020-09-03-05-22-30.jpg)
+
